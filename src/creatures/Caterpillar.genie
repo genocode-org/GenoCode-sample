@@ -1,0 +1,38 @@
+creature Caterpillar
+// A chain of twenty balls that wriggles. Each ball is a little smaller than the one before,
+// and a little further round the colour wheel.
+
+gene bend = 3 in -20..20 // how much the chain curls down at every ball, or up when below 0
+gene wriggle = 15 in 0..30 // how far it wriggles as time goes by
+gene thin = 0.95 in 0.88..1 // each ball's size compared with the one before
+gene first = 100 in 60..180 // the first ball's colour, in degrees round the colour wheel
+gene rainbow = 6 in 0..12 // how far the colour moves on at every ball
+
+shape ball
+yaw 90 // face to the right: the turtle starts facing you
+back 5 // start at the left, so the chain is in the middle
+repeat 20 as i {
+  colour hsv(first + rainbow * i, 0.8, 1)
+  lay
+  // A wave runs along the chain: each ball is a bit further along it than the last.
+  pitch bend + wriggle * wave(time / 2 - i / 10)
+  forward 0.7
+  grow thin
+}
+
+// A tight curl in one colour.
+variant Curl {
+  bend = 18
+  wriggle = 5
+  rainbow = 1
+  first = 160
+}
+
+// A straight, fat worm that wriggles hard.
+variant Worm {
+  bend = 0
+  wriggle = 28
+  thin = 0.99
+  first = 70
+  rainbow = 3
+}

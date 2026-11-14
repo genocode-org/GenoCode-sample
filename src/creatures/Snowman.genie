@@ -1,0 +1,42 @@
+creature Snowman
+// Three balls, one on another, each smaller than the last, with a carrot nose.
+// It sways gently from side to side as time goes by.
+
+gene shrink = 0.75 in 0.5..0.95 // each ball's size compared with the one below
+gene sway = 6 in 0..15 // how far it sways, in degrees
+gene nose = 1 in 0.3..2 // how long the carrot nose is
+gene snow = hsv(200, 0.1, 1) in hsv(180, 0, 0.7)..hsv(240, 0.4, 1) // the snow's colour
+
+pitch -90 // face up: the turtle starts facing you
+shape ball
+colour snow
+repeat 3 {
+  lay
+  yaw sway * wave(time / 3) // lean a little more with every ball
+  forward 0.8
+  grow shrink
+}
+
+// Back to the middle of the top ball, then turn to face forward for the nose.
+grow 1 / shrink
+back 0.8
+pitch 90
+forward 0.4 + nose / 2
+shape cone
+colour hsv(28, 0.9, 1)
+lay { grow (0.25, 0.25, nose) }
+
+// A stack of balls almost the same size, with a short nose.
+variant Chubby {
+  shrink = 0.92
+  nose = 0.5
+  snow = hsv(190, 0.25, 1)
+}
+
+// A quickly thinning snowman with a long nose, swaying a lot.
+variant Pointy {
+  shrink = 0.55
+  nose = 1.8
+  sway = 14
+  snow = hsv(230, 0.3, 0.9)
+}

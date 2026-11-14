@@ -1,0 +1,46 @@
+creature Flower
+// A ring of eight petals round a yellow middle. The petals open and close slowly.
+
+gene petal_length = 3 in 1.5..5 // how long each petal is
+gene petal_width = 0.8 in 0.3..1.4 // how wide each petal is
+gene open = 60 in 10..85 // how far the petals lean out: 0 is closed, 90 is flat
+gene breathe = 8 in 0..20 // how far the petals open and close as time goes by
+gene petal = hsv(320, 0.7, 1) in hsv(260, 0.3, 0.6)..hsv(360, 1, 1) // the petals' colour
+gene middle = hsv(50, 0.9, 1) in hsv(20, 0.5, 0.7)..hsv(70, 1, 1) // the middle's colour
+
+pitch -50 // face up and a little towards you: the turtle starts facing you
+
+// The middle.
+shape ball
+colour middle
+lay
+
+// The petals: each one starts in the middle, turned 45 degrees on from the one before.
+shape ball
+colour petal
+shine 0
+for i from 0 to 7 {
+  branch {
+    roll i * 45
+    pitch open + breathe * wave(time / 4)
+    forward petal_length / 2
+    // A ball squashed into a petal.
+    lay { grow (petal_width, 0.15, petal_length) }
+  }
+}
+
+// Short, wide petals, almost closed.
+variant Bud {
+  petal_length = 2
+  petal_width = 1.3
+  open = 20
+  petal = hsv(340, 0.5, 0.8)
+}
+
+// Long, thin petals lying nearly flat.
+variant Daisy {
+  petal_length = 4.5
+  petal_width = 0.45
+  open = 80
+  petal = hsv(280, 0.35, 1)
+}
