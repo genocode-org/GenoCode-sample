@@ -1,0 +1,106 @@
+/* The article page: an ordinary page of text. The creatures' canvases are styled like pictures. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: #fbf8f1;
+  color: #2b2a26;
+}
+
+.back {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+}
+
+a {
+  color: #2f6f4f;
+}
+
+article {
+  max-width: 680px;
+  margin: 0 auto 64px;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 24px 0 8px;
+}
+
+h2 {
+  margin: 40px 0 8px;
+}
+
+.lede {
+  font-size: 21px;
+  color: #5b5850;
+}
+
+figure {
+  margin: 32px 0;
+}
+
+/* The canvas is as wide as the text and keeps its shape. The viewer fills whatever size it's
+   given, and draws again when that size changes. */
+figure canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 12px;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  color: #6b675d;
+}
+
+.variants {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.variants button {
+  font: inherit;
+  padding: 2px 10px;
+  border: 1px solid #c9c3b4;
+  border-radius: 999px;
+  background: #fff;
+  color: inherit;
+  cursor: pointer;
+}
+
+.variants button:hover {
+  border-color: #2f6f4f;
+}
+
+/* On a wide screen, the caterpillar sits beside the text and the text flows round it. */
+@media (min-width: 720px) {
+  figure.aside {
+    float: right;
+    width: 45%;
+    margin: 4px 0 16px 24px;
+  }
+
+  figure.aside canvas {
+    aspect-ratio: 1;
+  }
+}
+
+/* Headings start below the caterpillar, not beside it. */
+h2 {
+  clear: both;
+}
