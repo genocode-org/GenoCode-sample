@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A small garden in spring</title>
+    <link rel="stylesheet" href="/src/article.css" />
+  </head>
+  <body>
+    <!--
+      An ordinary web page with creatures in it. Each <canvas data-creature="..."> is drawn by
+      src/article.js. Everything else is plain HTML and CSS: the creatures sit in the text like
+      pictures do.
+    -->
+    <p class="back"><a href="./">← Back to the five steps</a></p>
+
+    <article>
+      <h1>A small garden in spring</h1>
+      <p class="lede">
+        You don't need much room for a garden. A window box, a few pots by the door or one corner of a
+        yard is enough to watch a whole season go by.
+      </p>
+
+      <p>
+        Spring starts slowly. The first warm week wakes the bulbs you planted in autumn, and before
+        long the buds are fat and green. Then, one sunny morning, they open. Most flowers open in the
+        morning and close a little in the evening, which is why a garden looks different at breakfast
+        and at dinner.
+      </p>
+
+      <figure>
+        <canvas data-creature="Flower" aria-label="A pink flower whose petals slowly open and close"></canvas>
+        <figcaption>
+          A flower opens and closes as the day goes by.
+          <span class="variants" data-for="Flower"></span>
+        </figcaption>
+      </figure>
+
+      <h2>Choosing what to plant</h2>
+      <p>
+        Plant what grows well where you live: your neighbours' gardens are the best guide. Flowers
+        that come back every year, such as daisies, save work. Annuals give the brightest colour but
+        need planting again each spring. Mix a few tall plants at the back with low ones in front, so
+        nothing hides.
+      </p>
+      <p>
+        Water in the morning rather than at night, and water the soil, not the leaves. A layer of
+        mulch keeps the ground damp for longer and the weeds down.
+      </p>
+
+      <h2>Visitors</h2>
+      <figure class="aside">
+        <canvas data-creature="Caterpillar" aria-label="A rainbow caterpillar wriggling"></canvas>
+        <figcaption>
+          A caterpillar on its way.
+          <span class="variants" data-for="Caterpillar"></span>
+        </figcaption>
+      </figure>
+      <p>
+        A garden in flower soon has guests. Bees and hoverflies come for the nectar, ladybirds come
+        for the aphids, and sooner or later a caterpillar turns up to eat a leaf or two.
+      </p>
+      <p>
+        Before you pick it off, remember what it's going to become. Most caterpillars do little harm,
+        and a few chewed leaves are a fair price for butterflies later in summer. If one plant is
+        being eaten bare, move the caterpillar to a weed or a wilder corner instead.
+      </p>
+      <p>
+        Leave a little mess for the visitors: a pile of sticks, a patch of long grass, a shallow dish
+        of water with a stone to stand on. The tidier the garden, the fewer guests it has.
+      </p>
+
+      <h2>Looking ahead</h2>
+      <p>
+        By the end of spring the garden has found its shape. Write down what did well and what
+        didn't. Next year's garden starts with this year's notes.
+      </p>
+    </article>
+
+    <script type="module" src="/src/article.js"></script>
+  </body>
+</html>

@@ -49,7 +49,8 @@ The other files:
   caterpillar), each about 30 lines of GenoCode. `src/creatures.js` lists them. Bigger creatures
   come with `@genocode/core`; `src/creatures.js` says how to try one.
 - `src/App.jsx`: the page with the step buttons.
-- `src/styles.css`: all the styling.
+- `src/styles.css`: the styling of the five steps.
+- `article.html`, `src/article.js` and `src/article.css`: the article page (see below).
 
 ## Use it in your own site
 
@@ -61,6 +62,26 @@ npm install @genocode/core @genocode/render @genocode/controls
 
 Start from step 1: it's the smallest page that shows a creature. Each later step adds one idea,
 so take only the ideas you need.
+
+### Creatures in a page of text
+
+`article.html` is an ordinary web page, a short article about a spring garden, with two creatures
+in it. They sit in the text the way pictures do: the flower is as wide as the text, and the
+caterpillar stands beside the paragraphs, which flow round it. Each one has buttons for its
+variants under it. Open it at http://localhost:5173/article.html, or with the link at the top of
+the five steps.
+
+![The article page: text about garden visitors flowing round a wriggling caterpillar](docs/article.png)
+
+The page uses no React. `src/article.js` puts a creature in every
+`<canvas data-creature="Name">`, so to add one to a page you add a canvas and size it with CSS.
+It also does a few things a page full of text needs:
+
+- The camera is locked, so scrolling over a creature scrolls the page instead of zooming.
+- The camera frames everything the creature does over its first few seconds, so one that moves a
+  lot stays in its picture.
+- A creature moves only while it's on the screen, and stands still for people who have asked
+  their system for less motion.
 
 ## Where to go next
 

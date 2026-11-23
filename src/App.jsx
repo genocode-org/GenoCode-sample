@@ -56,6 +56,7 @@ export default function App() {
             </button>
           ))}
         </nav>
+        <a href="article.html">Creatures in a page of text →</a>
       </header>
       <p className="about">
         {step.about} <code>src/steps/{step.file}</code>
