@@ -46,7 +46,7 @@ The other files:
 - `src/CreatureCanvas.jsx`: step 1's code as a React component, which steps 2 to 5 use.
 - `src/GeneControl.jsx`: a gene's control from `@genocode/controls` as a React component.
 - `src/creatures`: three short creatures written for this sample (a snowman, a flower and a
-  caterpillar), each about 30 lines of GenoCode. `src/creatures.js` lists them. Bigger creatures
+  caterpillar), each about 40 lines of GenoCode. `src/creatures.js` lists them. Bigger creatures
   come with `@genocode/core`; `src/creatures.js` says how to try one.
 - `src/App.jsx`: the page with the step buttons.
 - `src/styles.css`: the styling of the five steps.
